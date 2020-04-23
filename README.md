@@ -1,24 +1,10 @@
-# vue-module
+# vue-module Vue模板
+## 前言
+使用vue全家桶开发项目有两年多的时间了，还是专门建了个模板在这里，以后再创建项目直接拿来套，会随时更新
 
-## Project setup
-```
-npm install
-```
+基本项：Vue2.X全家桶 + element + axios
+封装项：request、tool等
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+具体的组件就不放进来了，根据实际项目需求而自定义
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+具体指令看package.json文件
