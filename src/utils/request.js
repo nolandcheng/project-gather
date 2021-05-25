@@ -3,7 +3,7 @@
  * @Author: 
  * @Date: 2020-10-17 16:02:14
  * @LastEditors: Cheng
- * @LastEditTime: 2020-10-17 16:06:59
+ * @LastEditTime: 2021-05-25 16:59:02
  */
 import Vue from 'vue'
 import axios from 'axios'
@@ -36,7 +36,6 @@ const service = axios.create({
 // axios请求拦截器
 // service.interceptors.request.use(
 //   config => {
-//     // config.setHeader("X-Frame-Options", "SAMEORIGIN")
 //     if (store.getters.token) {
 //       // 让每个请求携带令牌
 //       config.headers['token'] = getToken()
@@ -44,8 +43,7 @@ const service = axios.create({
 //     return config
 //   },
 //   error => {
-//     // do something with request error
-//     console.log(error) // for debug
+//     console.log(error)
 //     return Promise.reject(error)
 //   }
 // )
