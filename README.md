@@ -1,33 +1,45 @@
-<!--
- * @Descripttion: readme
- * @Author: Cheng
- * @Date: 2021-05-24 16:46:46
- * @LastEditors: Cheng
- * @LastEditTime: 2021-05-26 11:24:24
--->
-# vue-module Vue2.x模板
+# vue2-pc-module
 
-## 前言
+## <a name=''></a>目录
 
-使用vue2.x全家桶开发项目有很久的时间了，vue3也出来不久了，想着还是专门建了个模板在这里，随时更新一些通用型的组件插件，也整合一些过去使用过的技术。
+<!-- vscode-markdown-toc -->
+* [目录](#)
+* [前言](#-1)
+* [1. 常用ui库](#ui)
+	* [1.2 介绍](#-1)
+	* [1.2 在.babel.config.js配置](#babel.config.js)
+	* [1.3 按需引入](#-1)
+	* [1.4 注意](#-1)
+* [2. 封装axios](#axios)
+	* [2.1 介绍](#-1)
+	* [2.2 封装和定义](#-1)
+	* [2.3 api调用](#api)
 
-脚手架为vue-cli4.x
+<!-- vscode-markdown-toc-config
+	numbering=false
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
 
-该模版主要还是集成一些非页面性质的代码，记录内容都是些比较浅显简单的，以实用为主，因为移动端有RN、flutter和uni-app的存在，所以本模版只适用于pc端的参考。
+## <a name='-1'></a>前言
 
-## 1.常用ui库 element-ui + ant-design-vue
+使用vue2.x全家桶开发项目有很久的时间了，预计以后的项目会投奔Vue3，所以想着还是专门建了个项目在这里，主要是记录一些通用型的组件插件，也整合一些过去使用过的技术。
 
-### 介绍
+vue2.x + vue-cli4.x + axios
 
-二者大同小异，element-ui更成熟些。对于开发项目，个人认为两者比较重要的区别是 ：
+ps: 只是技术层面的代码整合，并非开箱即用的模版
+
+## <a name='ui'></a>1. 常用ui库 
+
+### <a name='-1'></a>1.2 介绍
+
+element-ui + ant-design-vue 二者大同小异，element-ui更成熟些。对于开发项目，个人认为两者比较重要的区别是 ：
 
 * element-ui替换了系统的滚动条，表格封装得更容易操作，还有颜色选择器等小众但实用的组件；使用`babel-plugin-component`开发依赖进行按需引入
 
 * ant-design-vue动画更顺滑，样式也好看一点，还有个十分常用但element-ui官方没有的组件-下拉树。使用`babel-plugin-import`开发依赖进行按需引入
 
-### 使用
-
-#### 1.1 在.babel.config.js配置
+### <a name='babel.config.js'></a>1.2 在.babel.config.js配置
 
 ```js 
 module.exports = {
@@ -52,7 +64,7 @@ module.exports = {
 }
 ```
 
-#### 1.2 按需引入
+### <a name='-1'></a>1.3 按需引入
 
 新建一个文件夹来存放ui库按需引入的组件，再新建对应的js。
 
@@ -60,7 +72,7 @@ module.exports = {
 
 最后**main.j**s中引入即可
 
-#### 1.3 注意
+### <a name='-1'></a>1.4 注意
 
 需要注意的是ant-design-vue的样式会有点小问题，介意的话需要写新的样式覆盖，比如：
 
@@ -74,9 +86,9 @@ p, h1, h2, h3, h4, h5, h6 {
 
 同样再在main.js中引入即可
 
-## 2.封装axios
+## <a name='axios'></a>2. 封装axios
 
-### 介绍
+### <a name='-1'></a>2.1 介绍
 
 通常而言分为两种封装方式：
 
@@ -86,9 +98,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
 个人更偏向第一种
 
-### 使用 
-
-#### 1.1 封装和定义
+### <a name='-1'></a>2.2 封装和定义
 
 新建 **src/utils/request.js**，最基础的写法：
 
@@ -126,7 +136,7 @@ service.interceptors.response.use(
 export default service
 ```
 
-#### 1.2 api调用 
+### <a name='api'></a>2.3 api调用 
 
 ```js
 import request from '@/utils/request'
