@@ -1,10 +1,7 @@
-# vue2-pc-module
-
-## <a name=''></a>目录
+# 目录
 
 <!-- vscode-markdown-toc -->
-* [目录](#)
-* [前言](#-1)
+* [前言](#)
 * [1. 常用ui库](#ui)
 	* [1.2 介绍](#-1)
 	* [1.2 在.babel.config.js配置](#babel.config.js)
@@ -21,7 +18,7 @@
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
 
-## <a name='-1'></a>前言
+## <a name=''></a>前言
 
 使用vue2.x全家桶开发项目有很久的时间了，预计以后的项目会投奔Vue3，所以想着还是专门建了个项目在这里，主要是记录一些通用型的组件插件，也整合一些过去使用过的技术。
 
