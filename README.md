@@ -144,10 +144,15 @@ export const test = params => {
   return request({
     url: '/api/xxx',
     method: 'get',
-    params
+    params,
+    // params: qs.stringify(params)
   })
 }
+
+//使用qs.stringify(params)能将参数序列化成json的格式。
 ```
+
+具体的传参规则根据后台接口的需要去操作`headers, Content-Type`等。
 
 页面中直接引入，调用`test(参数)`即可
 
