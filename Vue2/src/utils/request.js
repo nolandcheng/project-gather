@@ -1,36 +1,35 @@
 /*
- * @Descripttion: 
- * @Author: 
+ * @Descripttion:
+ * @Author:
  * @Date: 2020-10-17 16:02:14
- * @LastEditors: Cheng
- * @LastEditTime: 2021-05-25 16:59:02
+ * @LastEditors: Noland Cheng
+ * @LastEditTime: 2023-12-27 18:06:24
  */
-import Vue from 'vue'
-import axios from 'axios'
+import Vue from "vue"
+import axios from "axios"
 // import store from '../store/index'
 
 let vm = new Vue()
 
 const errorData = {
-  '400': '请求错误',
-  '401': '登录失败',
-  '403': '拒绝访问',
-  '404': '请求地址出错',
-  '408': '请求超时',
-  '500': '服务器内部错误',
-  '501': '服务未实现',
-  '502': '网关错误',
-  '503': '服务不可用',
-  '504': '网关超时',
-  '505': 'HTTP版本不受支持',
+  400: "请求错误",
+  401: "登录失败",
+  403: "拒绝访问",
+  404: "请求地址出错",
+  408: "请求超时",
+  500: "服务器内部错误",
+  501: "服务未实现",
+  502: "网关错误",
+  503: "服务不可用",
+  504: "网关超时",
+  505: "HTTP版本不受支持",
 }
 
 // 设置后可将cookie回传给后台（可能）
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true
 const service = axios.create({
-  // 演示和生成环境手动设置baseUrl、开发环境在vue.config中配置有proxy
-  baseURL: process.env.NODE_ENV === 'production' ? process.env.VUE_APP_BASE_API : '',
-  timeout: 5000
+  baseURL: process.env.VUE_APP_BASE_API,
+  timeout: 5000,
 })
 
 // axios请求拦截器
@@ -50,7 +49,7 @@ const service = axios.create({
 
 // axios响应拦截器
 service.interceptors.response.use(
-  response => {
+  (response) => {
     const res = response.data
     // if (res.code === 0) {
     //   return res.data
@@ -62,12 +61,12 @@ service.interceptors.response.use(
     //   return Promise.reject(new Error(res.errorMsg))
     // }
   },
-  error => {
-    let message = ''
+  (error) => {
+    let message = ""
     if (error.response) {
-      message = errorData[error.response.status] || '连接服务器异常'
+      message = errorData[error.response.status] || "连接服务器异常"
     } else {
-      message = '连接服务器失败'
+      message = "连接服务器失败"
     }
     vm.$message.error(message)
     return Promise.reject(error)

@@ -71,9 +71,29 @@ h6 {
 
 同样再在 main.js 中引入即可
 
-## 2. 封装 axios
+## 2 环境配置
 
-### 2.1 介绍
+### 2.1 配置环境变量
+
+即使是一个非常简单的项目也通常会至少区分**开发环境**和**生产环境**，更为复杂的项目可能还会增添**测试环境**、**预发布环境**等，但它们的配置类似，这里我只写最基础的结构。
+
+新建`.env`和`.env.prod`文件（后者的.prod 可按照自己的喜好命名），`.env`文件默认为开发环境的配置文件不需要额外的声明，而我新建的`.env.prod`文件则要额外声明：
+
+```sql
+NODE_ENV = "production"
+```
+
+`production`意为生产环境，当我们在执行打包命令时，会默认按照生产环境更小的体积的方式打包，同样，我也可以写`development`，来声明当前文件为开发环境的环境配置文件。
+
+当存在多个环境时，只需要添加新的打包命令即可。
+
+```sql
+"build:prod": "vue-cli-service build --mode prod",
+```
+
+在`package.json`中添加如上代码即可。
+
+### 2.2 封装 axios
 
 通常而言分为两种封装方式：
 
@@ -81,9 +101,7 @@ h6 {
 
 - 在封装的时候直接调用`axios`，定义好参数，将请求方法`Post Get`等直接导出，这样调用封装方法的时候传值更少，但是封装时候的定义需要考虑更多。
 
-个人更偏向第一种
-
-### 2.2 封装和定义
+个人更偏向**第一种**
 
 新建 **src/utils/request.js**，最基础的写法：
 
@@ -92,7 +110,7 @@ import axios from "axios"
 
 const service = axios.create({
   // baseURL根据环境配置的不同，写法不同
-  baseURL: process.env.NODE_ENV === "production" ? process.env.VUE_APP_BASE_API : "",
+  baseURL: process.env.VUE_APP_BASE_API,
   timeout: 5000,
 })
 
@@ -121,7 +139,7 @@ service.interceptors.response.use(
 export default service
 ```
 
-### 2.3 api 调用
+随后编写 api：
 
 ```js
 import request from "@/utils/request"
@@ -150,3 +168,5 @@ export const test = (params) => {
 ### 3.2 BaseTable
 
 基础组件-表格，具体使用不过多赘述，要注意的是，我们会根据项目需求的不同，调节统一样式和默认传值。
+
+### 3.3 BaseForm
