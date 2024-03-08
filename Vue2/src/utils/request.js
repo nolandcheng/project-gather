@@ -1,10 +1,3 @@
-/*
- * @Descripttion:
- * @Author:
- * @Date: 2020-10-17 16:02:14
- * @LastEditors: Noland Cheng
- * @LastEditTime: 2023-12-27 18:06:24
- */
 import Vue from "vue"
 import axios from "axios"
 // import store from '../store/index'

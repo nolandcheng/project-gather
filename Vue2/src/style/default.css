@@ -23,8 +23,3 @@ h6 {
 a {
   text-decoration: none;
 }
-
-/* 表格内换行 兼容ie */
-.ant-table-row {
-  word-break: break-all;
-}
